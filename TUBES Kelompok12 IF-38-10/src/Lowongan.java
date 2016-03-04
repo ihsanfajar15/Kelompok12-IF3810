@@ -8,13 +8,7 @@
  *
  * @author ihsan
  */
-public class Main {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
+public class Lowongan {
+    private BerkasLamaran[] berkasMasuk;
+    private BerkasLamaran[] berkasDiterima;
 }
