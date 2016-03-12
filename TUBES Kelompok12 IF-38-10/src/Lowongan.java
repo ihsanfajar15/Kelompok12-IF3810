@@ -11,51 +11,32 @@
 public class Lowongan {
     private BerkasLamaran[] berkasMasuk;
     private BerkasLamaran[] berkasDiterima;
-
-}
-
-public void createLowongan{ 
-    this.berkasMasuk=berkasMasuk;
-    this.berkasDiterima=berkasDiterima;
-
-    if (berkasMasuk<berkasDiterima.length){
-        BerkasLamaran[berkasDiterima]=bd;
-        BerkasLamaran++;
-   }else {
-     System.out.println("Lowongan sudah full");
-  }
-} 
-
-public berkasLamaran getLowonganID(){
-    searchID();
-    if(ID[],ID=>0){
-        else{
-        System.out.println("Maaf,ID tidak ada")
-}
-        return ID;
-}
-
-
-public berkasLamaran getLowonganIndex(){
-  int idx;
-  double value;
-  
-     public void search idx (int idx,double value){
-        idx[];
-        for(int idx=0,idx[].length;i++)
-            if(idx[]===value)
-               return idx;
-     }
-
-}
-
-public void removeLowongan{ 
-    //removeLowongan from List
-     ArrayList<lowongan> daftarLowongan;
-     int ID;
-
-    public void deleteID(int ID){
-        daftarLowongan.remove(ID);
+    private int jumlahBerkas;
+    
+    public void addBerkasMasuk(){
+        berkasMasuk[jumlahBerkas] = new BerkasLamaran(); 
+        jumlahBerkas++; 
     }
+    
+    public void pindahBerkasMasuk(){
+        berkasDiterima[jumlahBerkas] = new BerkasLamaran();
+        jumlahBerkas++;
+    }
+    
+    public void removeBerkas(){
+    }
+    
+    public BerkasLamaran getBerkasMasukID(int id){
+        return berkasMasuk[id];
+    }
+    
+    public BerkasLamaran getBerkasMasukIndex(int index){
+        return berkasMasuk[index];
+    }
+        
+    public BerkasLamaran getBerkasDiterimaIndex(int index){
+        return berkasDiterima[index];
+    }
+         
 }
 
