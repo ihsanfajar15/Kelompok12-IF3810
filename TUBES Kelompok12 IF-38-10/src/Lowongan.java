@@ -28,13 +28,15 @@ public void createLowongan{
 
 public berkasLamaran getLowonganID(){
     searchID();
-    if(ID=>0){
-
-   }
+    if(ID[],ID=>0){
+        else{
+        System.out.println("Maaf,ID tidak ada")
+}
+        return ID;
 }
 
 
-public void getLowonganIndex(){
+public berkasLamaran getLowonganIndex(){
   int idx;
   double value;
   
