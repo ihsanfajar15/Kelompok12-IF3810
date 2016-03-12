@@ -27,7 +27,10 @@ public void createLowongan{
 } 
 
 public berkasLamaran getLowonganID(){
-   
+    searchID();
+    if(ID=>0){
+
+   }
 }
 
 
@@ -46,11 +49,11 @@ public void getLowonganIndex(){
 
 public void removeLowongan{ 
     //removeLowongan from List
-    public static void main(String [] args){
-       
-       
+     ArrayList<lowongan> daftarLowongan;
+     int ID;
 
-        dl.remove(1);
+    public void deleteID(int ID){
+        daftarLowongan.remove(ID);
     }
 }
 
