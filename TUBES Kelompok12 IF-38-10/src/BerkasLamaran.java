@@ -9,12 +9,32 @@
  * @author ihsan
  */
 public class BerkasLamaran {
+        private long id_berkas;
         private String nama;
         private String alamat;
         private String tanggalLahir;
         private String jurusan;
         private String sekolahTinggi;
         private int tahunLulus;
+
+    public BerkasLamaran(long id_berkas, String nama, String alamat, String tanggalLahir, String jurusan, String sekolahTinggi, int tahunLulus) {
+        this.id_berkas = id_berkas;
+        this.nama = nama;
+        this.alamat = alamat;
+        this.tanggalLahir = tanggalLahir;
+        this.jurusan = jurusan;
+        this.sekolahTinggi = sekolahTinggi;
+        this.tahunLulus = tahunLulus;
+    }
+
+    
+    public void setId_berkas(long id_berkas) {
+        this.id_berkas = id_berkas;
+    }
+
+    public long getId_berkas() {
+        return id_berkas;
+    }
 
     
     public void setNama(String nama) {
