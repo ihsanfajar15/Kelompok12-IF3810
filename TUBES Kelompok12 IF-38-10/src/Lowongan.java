@@ -12,3 +12,14 @@ public class Lowongan {
     private BerkasLamaran[] berkasMasuk;
     private BerkasLamaran[] berkasDiterima;
 }
+
+public void createLowongan{ 
+    this.berkasMasuk=berkasMasuk;
+    this.berkasDiterima=berkasDiterima;
+} 
+
+
+public void removeLowongan{ 
+    
+
+}
