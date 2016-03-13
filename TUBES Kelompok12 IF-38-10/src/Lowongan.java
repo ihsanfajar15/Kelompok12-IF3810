@@ -23,12 +23,34 @@ public class Lowongan {
         jumlahBerkas++;
     }
     
-    public void removeBerkas(){
+    public void removeBerkas(int targetID){
+        //removeLowongan from List
+        BerkasLamaran foundBerkas;
+
+        for(BerkasLamaran a : berkasMasuk){ 
+        if(BerkasLamaran.getId_berkas() == targetID){ 
+            a = null; 
+            break; 
+        } 
+        } 
     }
     
     public BerkasLamaran getBerkasMasukID(int id){
-        return berkasMasuk[id];
+        BerkasLamaran foundBerkas;
+
+        for(BerkasLamaran a : berkasDiterima){ 
+            if(BerkasLamaran.getId_berkas() == targetID){ 
+            foundBerkas = a; break; 
+                } 
+            } 
+            if(foundAccount != null){ 
+            return foundBerkas; 
+            }
+            else{ 
+            return null; 
+            } 
     }
+    
     
     public BerkasLamaran getBerkasMasukIndex(int index){
         return berkasMasuk[index];
