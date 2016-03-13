@@ -10,33 +10,58 @@
  */
 public class Lowongan {
     private BerkasLamaran[] berkasMasuk;
-    private BerkasLamaran[] berkasDiterima;
-    private int jumlahBerkas;
+    final BerkasLamaran[] berkasDiterima;
+    private int nBerkas;
+   
+
+ public void addBerkas(BerkasLamaran b, BerkasLamaran[] BerkasLamaran){ 
+    if (nBerkas<berkasDiterima.length){
+        BerkasLamaran[nBerkas]=b;
+        nBerkas++;
+   }else {
+     System.out.println("Lowongan sudah full");
+  }
+} 
 
 
- public void addBerkasMasuk(){
-        berkasMasuk[jumlahBerkas] = new BerkasLamaran(); 
-        jumlahBerkas++; 
+public void pindahBerkasMasuk(int jumlahBerkas){
+    berkasDiterima[jumlahBerkas] = new BerkasLamaran();
+    berkasDiterima[jumlahBerkas] = BerkasLamaran[nBerkas];
+    jumlahBerkas++;
 }
 
-  public void pindahBerkasMasuk(){
-        berkasDiterima[jumlahBerkas] = new BerkasLamaran();
-        jumlahBerkas++;
-    }
-  
-  public BerkasLamaran getBerkasMasukID(int id){
-        return berkasMasuk[id];
-    }
+
+public BerkasLamaran getBerkasID(int targetID){ 
+    BerkasLamaran foundBerkas;
+
+    for(BerkasLamaran b : berkasDiterima){ 
+        if(BerkasLamaran.getId() == targetID){ 
+            foundBerkas = b; 
+            break; 
+        } 
+    } 
+    if(foundAccount != null){ 
+        return foundBerkas; 
+    }else{ 
+        return null; 
+    } 
+}
 
 
-public BerkasLamaran getBerkasMasukIndex(int index){
+    public BerkasLamaran getBerkasMasukIndex(int index){
         return berkasMasuk[index];
     }
     
- public BerkasLamaran getBerkasDiterimaIndex(int index){
-        return berkasDiterima[index];
+    public void removeBerkas(int targetID){ 
+    //removeLowongan from List
+    BerkasLamaran foundBerkas;
+ 
+    for(BerkasLamaran a : berkasMasuk){ 
+        if(BerkasLamaran.getId_berkas() == targetID){ 
+            a = null; 
+            break; 
+        } 
+     }
+   
     }
-
-   public void removeBerkas(){
-    }
-}
+  
