@@ -24,11 +24,18 @@ public void addPelamar(String nama, String alamat, long id_ktp){
 }
 
 public Pelamar getPelamar(id){
-
+    return pelamar;
 }
 
 public void deletePelamar(id){
+//remove deletePelamar by Id
+    
 
+}
+
+public String toString(){
+    String x="Pelamar:  "+this.getPelamar(id);
+    return x;
 }
 
 
