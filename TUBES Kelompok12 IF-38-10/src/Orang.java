@@ -29,6 +29,12 @@ public abstract class Orang {
     public String getAlamat() {
         return alamat;
     }
+    
+    public String toString(){
+        String x="Nama pelamar"+this.getNama()+
+                  "\nAlamat :  "+this.getAlamat();
+        return x;
+    }
  
 }
     
