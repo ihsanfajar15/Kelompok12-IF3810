@@ -62,6 +62,11 @@ public BerkasLamaran getBerkasID(int targetID){
             break; 
         } 
      }
+      public String toString(){
+            String x = "Berkas Lamaran yang Diterima :  " +this.getBerkasID(nBerkas)+
+                       "\Berkas Masuk :  "+this.getBerkasMasukIndex(int index);
+            return x;
+        }
    
     }
   
