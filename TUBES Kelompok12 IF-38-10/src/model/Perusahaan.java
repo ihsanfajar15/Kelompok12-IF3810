@@ -1,3 +1,7 @@
+package model;
+
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,23 +12,12 @@
  *
  * @author ihsan
  */
-public class Perusahaan extends Orang{
+public class Perusahaan extends Orang implements Serializable{
     private Lowongan[] daftarLowongan;
-    private long id_perusahaan;
-    private int jumlahLowongan;
-    
-    public Perusahaan(String nama, String alamat, long id_perusahaan){
-        this.nama = nama;
-        this.alamat = alamat;
-        this.id_perusahaan = id_perusahaan;   
-    }
+    private static int countPerusahaan = 1;
 
-    public void setId_perusahaan(long id_perusahaan) {
-        this.id_perusahaan = id_perusahaan;
-    }
-
-    public long getId_perusahaan() {
-        return id_perusahaan;
+    public Perusahaan(String nama, String id) {
+        super(nama, id);
     }
     
     public void createLowongan(){ 
@@ -33,7 +26,6 @@ public class Perusahaan extends Orang{
     } 
     
     public void removeLowongan(){
-        
     }
      
     public Lowongan getLowonganIndex(int index){ 
@@ -42,7 +34,10 @@ public class Perusahaan extends Orang{
     
     public Lowongan getLowonganId(int id){ 
         }
+
+    @Override
+    public String toString() {
+        return("Nama Perusahaan : " + getNama() + "\n" + "ID Perusahaan : " + getId());
     } 
-    
     
 }

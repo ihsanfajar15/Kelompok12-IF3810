@@ -1,3 +1,7 @@
+package model;
+
+import java.io.Serializable;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -8,7 +12,7 @@
  *
  * @author ihsan
  */
-public class BerkasLamaran {
+public class BerkasLamaran implements Serializable {
         private long id_berkas;
         private String nama;
         private String alamat;
@@ -16,6 +20,7 @@ public class BerkasLamaran {
         private String jurusan;
         private String sekolahTinggi;
         private int tahunLulus;
+        private static int countBerkas;
 
     public BerkasLamaran(long id_berkas, String nama, String alamat, String tanggalLahir, String jurusan, String sekolahTinggi, int tahunLulus) {
         this.id_berkas = id_berkas;

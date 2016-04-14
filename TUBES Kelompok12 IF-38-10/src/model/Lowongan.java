@@ -1,3 +1,5 @@
+package model;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,6 +14,7 @@ public class Lowongan {
     private BerkasLamaran[] berkasMasuk;
     private BerkasLamaran[] berkasDiterima;
     private int jumlahBerkas;
+    private String idLowongan;
     
     public void addBerkasMasuk(){
         berkasMasuk[jumlahBerkas] = new BerkasLamaran(); 
@@ -23,32 +26,9 @@ public class Lowongan {
         jumlahBerkas++;
     }
     
-    public void removeBerkas(int targetID){
-        //removeLowongan from List
-        BerkasLamaran foundBerkas;
-
-        for(BerkasLamaran a : berkasMasuk){ 
-        if(BerkasLamaran.getId_berkas() == targetID){ 
-            a = null; 
-            break; 
-        } 
-        } 
-    }
+ 
     
     public BerkasLamaran getBerkasMasukID(int id){
-        BerkasLamaran foundBerkas;
-
-        for(BerkasLamaran a : berkasDiterima){ 
-            if(BerkasLamaran.getId_berkas() == targetID){ 
-            foundBerkas = a; break; 
-                } 
-            } 
-            if(foundAccount != null){ 
-            return foundBerkas; 
-            }
-            else{ 
-            return null; 
-            } 
     }
     
     
