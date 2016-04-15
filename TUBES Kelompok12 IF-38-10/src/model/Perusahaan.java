@@ -21,18 +21,16 @@ public class Perusahaan extends Orang implements Serializable{
         super(nama, id);
     }
     
-    public String createLowongan(){ 
-        Lowongan LWG;
-        //Object created di dalam method (komposisi)
-        String id = Integer.toString(daftarLowongan.size() + 1);
-        LWG = new Lowongan("Lowongan" + id);
-        //Insert it to array list
-        daftarLowongan.add(LWG);
-        return LWG.getIdLowongan();
-        
+    public void createLowongan(Lowongan l){ 
+        daftarLowongan.add(l);   
     } 
     
     public void removeLowongan(String IdLowongan){
+        for (int i=0;i<daftarLowongan.size();i++){
+                if (IdLowongan==daftarLowongan.get(i).getIdLowongan()){
+                    daftarLowongan.remove(i);
+                }
+            }
     }
      
     public Lowongan getLowonganIndex(int index){ 

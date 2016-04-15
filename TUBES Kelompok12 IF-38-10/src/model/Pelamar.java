@@ -6,7 +6,6 @@ package model;
  * and open the template in the editor.
  */
 import java.io.Serializable;
-import java.util.ArrayList;
 
 /**
  *
@@ -22,9 +21,6 @@ public class Pelamar extends Orang implements Serializable {
     
     public void createBerkas(BerkasLamaran b){
          berkas = b;
-    }
-
-    public void removeBerkas(int targetID){
     }
        
     @Override

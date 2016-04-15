@@ -35,7 +35,17 @@ public class Lowongan implements Serializable {
         berkasMasuk.add(b);
     }
     
-    public void pindahBerkasMasuk(){
+    public void removeBerkas(int ID){
+        for (int i=0;i<berkasMasuk.size();i++){
+                if (ID==berkasMasuk.get(i).getId_berkas()){
+                    berkasMasuk.remove(i);
+                }
+            }
+    }
+    
+    public void pindahBerkasMasuk(int id){
+        berkasDiterima.add(getBerkasMasukID(id));
+        removeBerkas(id);
     }
      
     public BerkasLamaran getBerkasMasukID(int id){
