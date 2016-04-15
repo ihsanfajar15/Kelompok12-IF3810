@@ -13,7 +13,7 @@ import java.io.Serializable;
  * @author ihsan
  */
 public class BerkasLamaran implements Serializable {
-        private long id_berkas;
+        private int id_berkas;
         private String nama;
         private String alamat;
         private String tanggalLahir;
@@ -22,7 +22,7 @@ public class BerkasLamaran implements Serializable {
         private int tahunLulus;
         private static int countBerkas;
 
-    public BerkasLamaran(long id_berkas, String nama, String alamat, String tanggalLahir, String jurusan, String sekolahTinggi, int tahunLulus) {
+    public BerkasLamaran(int id_berkas, String nama, String alamat, String tanggalLahir, String jurusan, String sekolahTinggi, int tahunLulus) {
         this.id_berkas = id_berkas;
         this.nama = nama;
         this.alamat = alamat;
@@ -33,7 +33,7 @@ public class BerkasLamaran implements Serializable {
     }
 
     
-    public void setId_berkas(long id_berkas) {
+    public void setId_berkas(int id_berkas) {
         this.id_berkas = id_berkas;
     }
 
