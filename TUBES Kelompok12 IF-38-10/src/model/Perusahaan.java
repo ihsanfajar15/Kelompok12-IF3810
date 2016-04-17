@@ -1,8 +1,4 @@
 package model;
-
-import java.io.Serializable;
-import java.util.ArrayList;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,45 +9,96 @@ import java.util.ArrayList;
  *
  * @author ihsan
  */
-public class Perusahaan extends Orang implements Serializable{
-    private ArrayList<Lowongan> daftarLowongan = new ArrayList();
-    private static int countPerusahaan = 1;
-
-    public Perusahaan(String nama, String id) {
-        super(nama, id);
+public class Perusahaan extends Orang {
+    private Lowongan[] daftarLowongan = new Lowongan[10];
+    
+    private int nLowongan = 0;
+    private String nmPerusahaan;
+    private Lowongan lowongan;
+    
+    
+    public Perusahaan(String nm, String nmPerusahaan) {
+        super(nm);     
+        this.nmPerusahaan= nmPerusahaan;
     }
     
-    public void createLowongan(Lowongan l){ 
-        daftarLowongan.add(l);   
-    } 
+    public Lowongan getLowongan1(){
+        return this.lowongan;
+    }
     
-    public void removeLowongan(String IdLowongan){
-        for (int i=0;i<daftarLowongan.size();i++){
-                if (IdLowongan==daftarLowongan.get(i).getIdLowongan()){
-                    daftarLowongan.remove(i);
+    
+    public Lowongan[] getDaftarLowongan(){
+        return daftarLowongan;
+    }
+    
+    public int getnLowongan(){
+        return nLowongan;
+    }
+    
+    public String getNamaPerusahaan(){
+        return this.nmPerusahaan;
+    }
+    
+    public void createLowongan(String idLowongan,String nmLowongan,String deadline){
+        
+		Lowongan lo = new Lowongan(idLowongan,nmLowongan, deadline);
+		daftarLowongan[nLowongan]  = lo;
+                nLowongan++;
+    }
+    
+	
+    public Lowongan getLowongan(int index){
+        
+	return daftarLowongan[index];
+    }
+    
+  
+	
+    public Lowongan getLowongan(String nmLowongan){
+		for (int i=0; i< nLowongan; i++){
+			if(nmLowongan.equalsIgnoreCase(this.daftarLowongan[i].getNamaLowongan())) {
+				return daftarLowongan[i];
+                        }
                 }
-            }
-    }
-     
-    public Lowongan getLowonganIndex(int index){ 
-         try {
-            return daftarLowongan.get(index);
-        } catch (Exception e) {
-            return null; //Jika tidak ditemukan; indexoutofbonds
-        }
+                return null;
     }
     
-    public Lowongan getLowonganId(int id){ 
-        for(Lowongan LWG : daftarLowongan){
-            if(LWG.getIdLowongan().equals(id))
-                return LWG;
+    public void remLowongan(String a){
+        int getIndex=-2;
+        for(int i = 0; i<nLowongan; i++){
+            if(this.daftarLowongan[i].getIdLowongan().equalsIgnoreCase(a)){
+                getIndex=i;
+                break;
+            }
         }
-        return null; //Jika tidak ditemukan
+        for(int i=getIndex+1; i< nLowongan;i++){
+            daftarLowongan[i-1]=daftarLowongan[i];
+        }
+        nLowongan--;
+    }
+  
+    @Override
+    public void display() {
+        System.out.println("Perusahaan "+getNamaPerusahaan());
+        System.out.println("Nama Pemilik Perusahaan     : "+super.getNamaOrang());
+        for(int i= 0; i<nLowongan;i++){
+        System.out.println("Lowongan yang tersedia : "+daftarLowongan[i].getIdLowongan()+"\tLowongan "+daftarLowongan[i].getNamaLowongan()+"\t\t Deadline :"+daftarLowongan[i].getDeadline());
+        }
+        
     }
 
     @Override
     public String toString() {
-        return("Nama Perusahaan : " + getNama() + "\n" + "ID Perusahaan : " + getId());
-    } 
+        String s= "nama Lowongan :"+this.getNamaOrang()+"\n";
+        String s1 = "perusahaan : "+this.getNamaPerusahaan()+"\n";
+        String s2 = "lowongan : \n";
+        String lowongan = "";
+        for (int i = 0; i < nLowongan; i++) {
+            lowongan += (i+1)+" "+this.daftarLowongan[i].getNamaLowongan()+"\n";
+        }
+        return s+s1+s2+lowongan;
+//        return "Perusahaan{" + "daftarLowongan=" + daftarLowongan + ", nLowongan=" + nLowongan + ", nmPerusahaan=" + nmPerusahaan + ", lowongan=" + lowongan + '}';
+    }
+        
     
 }

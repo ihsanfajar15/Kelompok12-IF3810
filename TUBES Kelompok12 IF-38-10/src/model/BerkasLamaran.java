@@ -1,7 +1,5 @@
 package model;
 
-import java.io.Serializable;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,83 +10,52 @@ import java.io.Serializable;
  *
  * @author ihsan
  */
-public class BerkasLamaran implements Serializable {
-        private int id_berkas;
-        private String nama;
-        private String alamat;
-        private String tanggalLahir;
-        private String jurusan;
-        private String sekolahTinggi;
-        private int tahunLulus;
-        private static int countBerkas;
+public class BerkasLamaran {
+    private String jenisBerkas;
+    private String tglMasukBerkas;
+    private String idBerkas;
+    public Pelamar[] p= new Pelamar[10];
+    public int nPelamar= 0;
 
-    public BerkasLamaran(int id_berkas, String nama, String alamat, String tanggalLahir, String jurusan, String sekolahTinggi, int tahunLulus) {
-        this.id_berkas = id_berkas;
-        this.nama = nama;
-        this.alamat = alamat;
-        this.tanggalLahir = tanggalLahir;
-        this.jurusan = jurusan;
-        this.sekolahTinggi = sekolahTinggi;
-        this.tahunLulus = tahunLulus;
+    BerkasLamaran(String id, String jenisBerkas, String tglMsk) {
+         this.idBerkas= id;
+       this.tglMasukBerkas= tglMsk;
+        this.jenisBerkas= jenisBerkas;
     }
-
     
-    public void setId_berkas(int id_berkas) {
-        this.id_berkas = id_berkas;
+    public void setIdBerkas(String id){
+        this.idBerkas= id;
     }
 
-    public long getId_berkas() {
-        return id_berkas;
+    public void setTglMasukBerkas(String tgl){
+        this.tglMasukBerkas= tgl;
     }
-
+    public void setJenisBerkas(String jb){
+        this.jenisBerkas= jb;
+    }
     
-    public void setNama(String nama) {
-        this.nama = nama;
+    public String getJenisBerkas(){
+      return jenisBerkas;  
     }
-
-    public void setAlamat(String alamat) {
-        this.alamat = alamat;
-    }
-
-    public void setTanggalLahir(String tanggalLahir) {
-        this.tanggalLahir = tanggalLahir;
-    }
-
-    public void setJurusan(String jurusan) {
-        this.jurusan = jurusan;
-    }
-
-    public void setSekolahTinggi(String sekolahTinggi) {
-        this.sekolahTinggi = sekolahTinggi;
-    }
-
-    public void setTahunLulus(int tahunLulus) {
-        this.tahunLulus = tahunLulus;
-    }
-
-    public String getNama() {
-        return nama;
-    }
-
-    public String getAlamat() {
-        return alamat;
-    }
-
-    public String getTanggalLahir() {
-        return tanggalLahir;
-    }
-
-    public String getJurusan() {
-        return jurusan;
-    }
-
-    public String getSekolahTinggi() {
-        return sekolahTinggi;
-    }
-
-    public int getTahunLulus() {
-        return tahunLulus;
-    }
-        
     
+    public String getIdBerkas(){
+        return this.idBerkas;
+    }
+    
+    public String getTglMasukBerkas(){
+        return tglMasukBerkas;
+    }
+    
+    public int getnPelamar(){
+        return this.nPelamar;
+    }
+   
+    
+    public void addDataPelamar(Pelamar p){
+        if (nPelamar < this.p.length){
+			this.p[nPelamar]=p;
+			nPelamar++;
+		}
+    }
 }
+    

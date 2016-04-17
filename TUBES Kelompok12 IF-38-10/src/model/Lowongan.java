@@ -1,8 +1,5 @@
 package model;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -13,65 +10,85 @@ import java.util.ArrayList;
  *
  * @author ihsan
  */
-public class Lowongan implements Serializable {
-    private ArrayList<BerkasLamaran> berkasMasuk = new ArrayList();
-    private ArrayList<BerkasLamaran> berkasDiterima = new ArrayList();
-    private String idLowongan;
+public class Lowongan {
 
-    public Lowongan(String idLowongan) {
+    private BerkasLamaran[] berkasMasuk = new BerkasLamaran[50];
+    private BerkasLamaran[] berkasDiterima = new BerkasLamaran[50];
+    private String idLowongan;
+    private String deadline;
+    private int nBerkas = 0;
+    private int nBTerima = 0;
+    private String nmLowongan;
+
+    Lowongan(String idLowongan, String nm, String deadline) {
         this.idLowongan = idLowongan;
+        this.deadline = deadline;
+        this.nmLowongan = nm;
+    }
+
+    public String getNamaLowongan() {
+        return this.nmLowongan;
+    }
+
+    public int getnBerkas() {
+        return this.nBerkas;
+    }
+
+    public String getDeadline() {
+        return this.deadline;
     }
 
     public String getIdLowongan() {
-        return idLowongan;
+        return this.idLowongan;
     }
 
-    public void setIdLowongan(String idLowongan) {
-        this.idLowongan = idLowongan;
+    public void addBerkas(BerkasLamaran b) {
+        this.berkasMasuk[nBerkas] = b;
+        nBerkas++;
     }
-    
-    
-    public void addBerkasMasuk(BerkasLamaran b){
-        berkasMasuk.add(b);
+
+    public BerkasLamaran getBerkasMasuk(int index) {
+        return berkasMasuk[index];
     }
-    
-    public void removeBerkas(int ID){
-        for (int i=0;i<berkasMasuk.size();i++){
-                if (ID==berkasMasuk.get(i).getId_berkas()){
-                    berkasMasuk.remove(i);
-                }
+
+    public BerkasLamaran getBerkasMasuk(String id) {
+        for (int i = 0; i < nBTerima; i++) {
+            if (id.equals(this.berkasMasuk[i].getIdBerkas())) {
+                return berkasMasuk[i];
             }
-    }
-    
-    public void pindahBerkasMasuk(int id){
-        berkasDiterima.add(getBerkasMasukID(id));
-        removeBerkas(id);
-    }
-     
-    public BerkasLamaran getBerkasMasukID(int id){
-        for(BerkasLamaran BL : berkasMasuk){
-            if(BL.getId_berkas() == id)
-                return BL;
-        }
-        return null; //Jika tidak ditemukan
-    }
-    
-    
-    public BerkasLamaran getBerkasMasukIndex(int index){
-       try {
-            return berkasMasuk.get(index);
-        } catch (Exception e) {
-            return null; //Jika tidak ditemukan
-        }
-    }
-        
-    public BerkasLamaran getBerkasDiterimaIndex(int index){
-            try {
-            return berkasDiterima.get(index);
-        } catch (Exception e) {
-            return null; //Jika tidak ditemukan
-        }
-    }
-         
-}
 
+        }
+        return null;
+    }
+
+    public void terimaBerkas(BerkasLamaran b) {
+        if (nBerkas > nBTerima) {
+            this.berkasDiterima[nBTerima] = b;
+            nBTerima++;
+            nBerkas--;
+        }
+    }
+
+    public int getnBTerima() {
+        return this.nBTerima;
+    }
+
+    public BerkasLamaran getBerkasDiterima(int index) {
+        return berkasDiterima[index];
+    }
+
+    public void remBerkas(String index) {
+        int getIndex = -2;
+        for (int i = 0; i < nBerkas; i++) {
+            if (index.equals(this.berkasMasuk[i].getIdBerkas())) {
+                getIndex = i;
+                break;
+            }
+        }
+        for (int i = getIndex + 1; i < nBerkas; i++) {
+            berkasMasuk[i - 1] = berkasMasuk[i];
+        }
+        nBerkas--;
+    }
+
+}

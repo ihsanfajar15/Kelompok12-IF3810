@@ -5,22 +5,19 @@ package model;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-import java.io.Serializable;
 /**
  *
  * @author ihsan
  */
-public abstract class Orang implements Serializable {
-    private String nama;
-    private String id;
+public abstract class Orang {
+    private String nama,alamat,email,jenisKelamin;
+    private int usia;
+    private long nohp;
 
-    public Orang(String nama, String id) {
-        this.nama = nama;
-        this.id = id;
+    public Orang (String nama){
+        this.nama=nama;
     }
-
-    
-    public String getNama() {
+    public String getNamaOrang() {
         return nama;
     }
 
@@ -28,15 +25,45 @@ public abstract class Orang implements Serializable {
         this.nama = nama;
     }
 
-    public String getId() {
-        return id;
+    public String getAlamat() {
+        return alamat;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
     }
-    
-    public abstract String toString();
-    
- 
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getJenisKelamin() {
+        return jenisKelamin;
+    }
+
+    public void setJenisKelamin(String jenisKelamin) {
+        this.jenisKelamin = jenisKelamin;
+    }
+
+    public int getUsia() {
+        return usia;
+    }
+
+    public void setUsia(int usia) {
+        this.usia = usia;
+    }
+
+    public long getNohp() {
+        return nohp;
+    }
+
+    public void setNohp(long nohp) {
+        this.nohp = nohp;
+    }
+   
+    public abstract void display();
 }
