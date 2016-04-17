@@ -9,15 +9,6 @@ package controller;
  *
  * @author ihsan
  */
-import controller.ControllerCariLowongan;
-import controller.ControllerCariPerusahaan;
-import controller.ControllerHapusLowongan;
-import controller.ControllerHapusPerusahaan;
-import controller.ControllerMainMenu;
-import controller.ControllerTambahLowongan;
-import controller.ControllerTambahPerusahaan;
-import controller.ControllerTampilkanPelamarLowongan;
-import controller.ControllerTampilkanPerusahaan;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
@@ -50,6 +41,7 @@ public class ControllerPerusahaan implements ActionListener{
         this.p.getCariLowongan().addActionListener(this);
         this.p.getTampilkanPelamarLowongan().addActionListener(this);
         this.p.getButtonBack().addActionListener(this);
+        this.p.getTerimaBerkasButton().addActionListener(this);
         
     }
     
@@ -102,6 +94,16 @@ public class ControllerPerusahaan implements ActionListener{
          else if(x.equals(p.getTampilkanPelamarLowongan())){
              this.p.setVisible(false);
              ControllerTampilkanPelamarLowongan ctpl = new ControllerTampilkanPelamarLowongan(app);
+         }
+        
+         else if(x.equals(p.getTerimaBerkasButton())){
+             this.p.setVisible(false);
+             ControllerTambahBerkas ctb = new ControllerTambahBerkas(app);
+         }
+        
+         else if(x.equals(p.getTampilkanBerkasDiterima())){
+             this.p.setVisible(false);
+             ControllerTampilkanBerkasDiterima ctbd = new ControllerTampilkanBerkasDiterima(app);
          }
     }
     

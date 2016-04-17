@@ -22,10 +22,11 @@ public class Aplikasi {
     ArrayList<Pelamar> listPelamar = new ArrayList<>();
     ArrayList<Lowongan> listLowongan = new ArrayList<>();
     Scanner input = new Scanner(System.in);
-    
-    public ArrayList<Lowongan> getListLowongan(){
+
+    public ArrayList<Lowongan> getListLowongan() {
         return this.listLowongan;
     }
+
     public ArrayList<Perusahaan> getListPerusahaan() {
         return this.listPerusahaan;
     }
@@ -35,20 +36,20 @@ public class Aplikasi {
     }
 
     public void data1() {
-        addPerusahaan("Abu Dzar Al Ghiffari", "NIKE");
-        addPerusahaan("Eka Nugraha S", "ADIDAS");
-        addPerusahaan("Givanni T", "ROXY");
-        getPerusahaan("NIKE").createLowongan("L001", "kasir", "20 Maret 2018");
-        getPerusahaan("NIKE").createLowongan("L002", "officeboy", "20 Maret 2018");
-        getPerusahaan("ADIDAS").createLowongan("L001", "sales", "20 Agustus 2019");
-        getPerusahaan("ROXY").createLowongan("L001", "manager", "21 juni 2019");
+        addPerusahaan("ihsan Fajar Nurzaman", "Manchester United");
+        addPerusahaan("Garincha Utama", "Real Madrid");
+        addPerusahaan("M. Arief", "Persib");
+        getPerusahaan("Manchester United").createLowongan("L01", "striker", "20 Maret 2016");
+        getPerusahaan("Manchester United").createLowongan("L02", "asisten", "20 Maret 2016");
+        getPerusahaan("Real Madrid").createLowongan("L01", "manager", "14 April 2016");
+        getPerusahaan("Persib").createLowongan("L01", "coach", "16 Juni 2016");
 
-        addPelamar("kaka", "P001");
-        addPelamar("kuku", "P002");
-        addPelamar("keke", "P003");
-        getPelamar("kaka").createBerkas("B001", "Doc", "20 maret 2099");
-        getPelamar("kuku").createBerkas("B002", "Docs", "23 maret 2099");
-        getPelamar("keke").createBerkas("B003", "Docu", "21 maret 2099");
+        addPelamar("ihsan", "P01");
+        addPelamar("garincha", "P02");
+        addPelamar("arief", "P03");
+        getPelamar("ihsan").createBerkas("B01", "Doc", "20 April 2016");
+        getPelamar("garincha").createBerkas("B02", "Docs", "23 April 2016");
+        getPelamar("arief").createBerkas("B03", "Docu", "21 April 2016");
     }
 
     public void addPerusahaan(String nama, String namaPerusahaan) {
@@ -212,31 +213,41 @@ public class Aplikasi {
         return s;
     }
 
-    public void displayBerkasDiTerima(String nmPerusahaan, String namaLowongan) {
+    public String displayBerkasDiTerima(String nmPerusahaan, String namaLowongan) {
+        String s ="";
         for (int i = 0; i < getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getnBTerima(); i++) {
-            System.out.println("\t Diterima Sebagai " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getNamaLowongan());
-            System.out.println("id Berkas    : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getIdBerkas());
-            System.out.println("jenis bekas  : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getJenisBerkas());
-            System.out.println("tgl Masuk Berkas : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getTglMasukBerkas());
-            System.out.println("=====================================================================");
+           s=s+"\t Diterima Sebagai " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getNamaLowongan()+"\n";
+            s=s+("id Berkas    : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getIdBerkas()+"\n");
+            s=s+("jenis bekas  : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getJenisBerkas()+"\n");
+            s=s+("tgl Masuk Berkas : " + getPerusahaan(nmPerusahaan).getLowongan(namaLowongan).getBerkasDiterima(i).getTglMasukBerkas()+"\n");
+            s=s+("====================================================================="+"\n");
         }
+        return s;
     }
 
-//    public String tampilPelamarLowongan(String nmPerusahaan5, String nmlow) {
-//        String s = "";
-//        for (int i = 0; i < listPerusahaan.size(); i++) {
-//            
-//            for (int j = 0; j < listPerusahaan.get(i).getnLowongan(); j++) {
-//                s=s+getListLowongan().get(j).getNamaLowongan()+"\t";
-//                s=s+get
-//                
-////s = s + ("ID berkas Pelamar : " + getPerusahaan(nmPerusahaan5).getLowongan(nmlow).getBerkasMasuk(j).getIdBerkas());
-//
-//            }
-//
-//        }
-//        return s;
-//    }
+    public String tampilPelamarLowongan(String namaPerusahaan) {
+       String s = "";
+
+        for (int i = 0; i < listPerusahaan.size(); i++) {
+            if (listPerusahaan.get(i).getNamaPerusahaan().equalsIgnoreCase(namaPerusahaan)) {
+                s = s + "===============" + listPerusahaan.get(i).getNamaPerusahaan() + "===============\n";
+                s = s + "pemilik perusahaan : " + listPerusahaan.get(i).getNamaOrang() + "\n";
+                s = s + "Lowongan yang tersedia : \t\t"+"Pelamar \n";
+                s=s+"--------------------------------------------------------------------------------\n";
+                if (listPerusahaan.get(i).getnLowongan() != 0) {
+                    for (int j = 0; j < listPerusahaan.get(i).getnLowongan(); j++) {
+                        s = s + (j + 1) + ". " + listPerusahaan.get(i).getLowongan(j).getNamaLowongan() +"\t\t\t"+getPerusahaan(namaPerusahaan).getLowongan(j).getBerkasMasuk(j).getIdBerkas()+"\n";
+                    }
+                } else {
+                    s = s + "Tidak ada\n";
+                }
+                s = s + "==================================\n";
+            }
+
+        }
+        return s;
+
+    }
 
     public void menu() {
         try {

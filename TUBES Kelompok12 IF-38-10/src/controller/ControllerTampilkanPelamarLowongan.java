@@ -5,7 +5,6 @@
  */
 package controller;
 
-import controller.ControllerPerusahaan;
 import view.TampilkanPelamarLowongan;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -42,13 +41,12 @@ public class ControllerTampilkanPelamarLowongan implements ActionListener{
             
         }
         
-//        else if(x.equals(p.getTampilkanButton())){
-//            String namaPerusahaan = p.getNamaPerusahaanField().getText();
-//            String namaLowongan = p.getNamaLowonganField().getText();
-//            p.getHasilField().setText(app.tampilPelamarLowongan(namaPerusahaan, namaLowongan));
-//                    }
-//
-//       
+        else if(x.equals(p.getTampilkanButton())){
+            String namaPerusahaan = p.getNamaPerusahaanField().getText();
+            p.getHasilField().setText(app.tampilPelamarLowongan(namaPerusahaan));
+                    }
+
+       
        }
     
     

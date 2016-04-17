@@ -24,12 +24,12 @@ public class Driver {
         app.getPerusahaan("ihsanfajar15").createLowongan("L01", "Designer", "20 April 2016");
         
         
-        app.addPelamar("Garincha", "P01");
-        app.getPelamar("Garincha").createBerkas("B01", "Dokumen", "19 April 2016");
-        app.getPerusahaan("ihsanfajar15").getLowongan("Designer").addBerkas(app.getPelamar("Garincha").getBerkas("B01"));
+        app.addPelamar("garincha", "P02");
+        app.getPelamar("garincha").createBerkas("B02", "Docs", "23 April 2016");
+        app.getPerusahaan("ihsanfajar15").getLowongan("Designer").addBerkas(app.getPelamar("garincha").getBerkas("B01"));
         
         
-        app.addPelamar("Arief", "P02");
+        app.addPelamar("arief", "P03");
         
           ControllerMainMenu cmm = new ControllerMainMenu(app);
     }

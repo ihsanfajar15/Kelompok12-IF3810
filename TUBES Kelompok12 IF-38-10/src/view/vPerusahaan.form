@@ -41,9 +41,14 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="tambahLowongan" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
                           <Component id="hapusLowongan" min="-2" pref="268" max="-2" attributes="0"/>
-                          <Component id="tambahLowongan" min="-2" pref="268" max="-2" attributes="0"/>
                           <Component id="tampilkanPelamarLowongan" alignment="0" min="-2" pref="268" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="terimaBerkasButton" pref="268" max="32767" attributes="0"/>
+                          <Component id="tampilkanBerkasDiterima" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -51,24 +56,15 @@
                       <Component id="cariLowongan" min="-2" pref="190" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace min="0" pref="39" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
+              <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
-                      <Component id="perusahaan" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="28" pref="28" max="-2" attributes="0"/>
-                      <Component id="tampilkanPerusahaan" min="-2" pref="253" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="201" pref="201" max="-2" attributes="0"/>
-                      <Component id="tampilkanBerkasDiterima" min="-2" pref="247" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="perusahaan" min="-2" max="-2" attributes="0"/>
+                  <Component id="tampilkanPerusahaan" min="-2" pref="253" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="237" max="32767" attributes="0"/>
+              <EmptySpace min="404" pref="671" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
@@ -89,7 +85,10 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="tambahLowongan" alignment="0" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                      <Component id="tambahLowongan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                      <Component id="terimaBerkasButton" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                  </Group>
                   <Component id="tambahPerusahaan" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
@@ -97,14 +96,13 @@
                   <Component id="hapusPerusahaan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
                   <Component id="hapusLowongan" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tampilkanPerusahaan" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
                   <Component id="tampilkanPelamarLowongan" alignment="3" min="-2" pref="62" max="-2" attributes="0"/>
+                  <Component id="tampilkanBerkasDiterima" alignment="3" min="-2" pref="67" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="29" pref="29" max="-2" attributes="0"/>
-              <Component id="tampilkanBerkasDiterima" min="-2" pref="67" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="111" max="-2" attributes="0"/>
               <Component id="buttonBack" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
@@ -175,6 +173,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Kembali ke Halaman Awal"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="terimaBerkasButton">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="(+) Terima Berkas"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="terimaBerkasButtonActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
