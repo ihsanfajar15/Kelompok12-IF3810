@@ -34,6 +34,7 @@ public class Aplikasi {
     public ArrayList<Pelamar> getListPelamar() {
         return this.listPelamar;
     }
+    
 
     public void data1() {
         addPerusahaan("ihsan Fajar Nurzaman", "Manchester United");
@@ -433,10 +434,5 @@ public class Aplikasi {
         }
 
     }
-
-    public static void main(String[] args) {
-        Aplikasi ap = new Aplikasi();
-        ap.data1();
-        ap.menu();
-    }
+    
 }
